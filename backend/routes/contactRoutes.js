@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticate = require('../middleware/authenticate');
-import { createContact, getAllContacts, getContactById, updateContact, deleteContact } from '../controllers/contactController';
+const { createContact, getAllContacts, getContactById, updateContact, deleteContact } = require('../controllers/contactController');
 
 router.use(authenticate);
 

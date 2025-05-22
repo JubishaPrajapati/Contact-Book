@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import "./Dashboard.css";
+import { useState, useEffect } from "react";
+import "./dashboard.css";
 import { Link } from "react-router-dom";
-import { fetchContact, deleteContact } from "../services/contactServices";
-import Header from "../components/HeaderComponent"
+import { fetchContact, deleteContact } from "../../services/contactServices";
+import Header from "../../components/headerComponent"
 
 const Dashboard = () => {
     const [contacts, setContacts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState("");
     const userId = localStorage.getItem('userId');
+
 
     useEffect(() => {
         const getContacts = async () => {
@@ -39,16 +41,22 @@ const Dashboard = () => {
         }
     }
 
+    const filteredContacts = contacts.filter((contact) => `${contact.name} ${contact.email} ${contact.phone}`.toLowerCase().includes(searchQuery.toLowerCase()))
 
     return (
         <>
             <Header />
-
             <div className="dashboard-container">
                 <div className="dashboard-header">
                     <h2>Contact Dashboard</h2>
                     <Link to="/add" className="add-contact-button">Add Contact</Link>
                 </div>
+
+                {/* search input */}
+                <div className="search-container">
+                    <input type="text" placeholder="Search contact" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="search-input" />
+                </div>
+
                 {loading ? (
                     <p>Loading contacts...</p>
                 ) : (
@@ -62,8 +70,8 @@ const Dashboard = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {Array.isArray(contacts) && contacts.length > 0 ? (
-                                contacts.map(contact => (
+                            {filteredContacts.length > 0 ? (
+                                filteredContacts.map((contact) => (
                                     <tr key={contact._id}>
                                         <td>{contact.name}</td>
                                         <td>{contact.email}</td>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./AddEditContact.css";
+import "./contactForm.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { createContact, editContact, findContactById } from "../services/contactServices"
+import { createContact, editContact, findContactById } from "../../services/contactServices"
 
-const AddEditContact = () => {
+const ContactForm = () => {
 
     const [contact, setContact] = useState({ name: "", email: "", phone: "" });
     const { id } = useParams();
@@ -70,4 +70,4 @@ const AddEditContact = () => {
         </div >
     )
 }
-export default AddEditContact;
+export default ContactForm;

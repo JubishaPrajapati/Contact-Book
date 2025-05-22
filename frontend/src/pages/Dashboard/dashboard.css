@@ -77,3 +77,16 @@
 .delete-button:hover {
     background-color: #c82333;
 }
+
+.search-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    padding: 8px 12px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./AuthPages.css";
-import { registerUser } from "../services/userServices";
+import { useState } from "react";
+import "./authPages.css";
+import { registerUser } from "../../services/userServices";
 
 const Register = () => {
     const [message, setMessage] = useState("");

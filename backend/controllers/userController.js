@@ -2,7 +2,6 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-
 //register new user
 exports.register = async (req, res) => {
     try {

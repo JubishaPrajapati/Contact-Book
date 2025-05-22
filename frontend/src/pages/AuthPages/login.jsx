@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./AuthPages.css"
+import { useState } from "react";
+import "./authPages.css"
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../services/userServices";
+import { loginUser } from "../../services/userServices";
 
 const Login = () => {
 
