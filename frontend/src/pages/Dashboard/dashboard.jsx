@@ -41,7 +41,10 @@ const Dashboard = () => {
         }
     }
 
-    const filteredContacts = contacts.filter((contact) => `${contact.name} ${contact.email} ${contact.phone}`.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filteredContacts = contacts.filter((contact) =>
+        `${contact.name} ${contact.email} ${contact.phone}`
+            .toLowerCase().includes(searchQuery.toLowerCase())
+    )
 
     return (
         <>
