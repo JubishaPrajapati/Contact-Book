@@ -15,6 +15,7 @@ exports.createContact = async (req, res) => {
 //get all contacts
 exports.getAllContacts = async (req, res) => {
     try {
+        console.log('User ID in request:', req.user?.userId);
         const contacts = await Contact.find({ userId: req.user.userId });
         res.status(200).json(contacts);
     } catch (err) {
@@ -38,7 +39,7 @@ exports.getContactById = async (req, res) => {
 //edit a contact by id
 exports.updateContact = async (req, res) => {
     try {
-        const updateContact = await Contact.findByIdAndUpdate({ _id: req.params.id, userId: req.user.userId },
+        const updateContact = await Contact.findOneAndUpdate({ _id: req.params.id, userId: req.user.userId },
             req.body,
             { new: true });
         if (!updateContact) {
@@ -53,7 +54,7 @@ exports.updateContact = async (req, res) => {
 //delete contact by id
 exports.deleteContact = async (req, res) => {
     try {
-        const deleteContact = await Contact.findByIdAndDelete({ _id: req.params.id, userId: req.user.userId });
+        const deleteContact = await Contact.findOneAndDelete({ _id: req.params.id, userId: req.user.userId });
         if (!deleteContact) {
             return res.status(404).json({ messgae: "Contact not found" });
         }

@@ -5,14 +5,14 @@ const { createContact, getAllContacts, getContactById, updateContact, deleteCont
 
 router.use(authenticate);
 
-router.post('/contacts', createContact);
+router.post('/', createContact);
 
-router.get('/contacts', getAllContacts);
+router.get('/', getAllContacts);
 
-router.get('/contacts/:id', getContactById);
+router.get('/:id', getContactById);
 
-router.put('/contacts/:id', updateContact);
+router.put('/:id', updateContact);
 
-router.delete('/contacts/:id', deleteContact);
+router.delete('/:id', deleteContact);
 
 module.exports = router;

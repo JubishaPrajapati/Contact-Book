@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./authPages.css";
 import { registerUser } from "../../services/userServices";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -30,7 +32,8 @@ const Register = () => {
         try {
             const response = await registerUser(formData);
             if (response && response.message) {
-                setMessage("Registration successful");
+                alert("Registration successful");
+                navigate('/login');
             } else {
                 setMessage(response?.error || "Registration failed.");
             }
@@ -49,8 +52,12 @@ const Register = () => {
                 <input type="email" name="email" placeholder="Enter email address" value={formData.email} onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Enter password" value={formData.password} onChange={handleChange} required />
                 <button type="submit">Register</button>
+                <div className="create-acc">
+                    <p className="left-text">Have an account?</p>
+                    <a href="/login" className="right-link">Login</a>
+                </div>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p className="error-msg">{message}</p>}
         </div>
     )
 }

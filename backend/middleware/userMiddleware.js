@@ -11,8 +11,8 @@ const userMiddleware = {
             return next(error);
         }
     },
-    comparePassword: async function (candidatePassowrd) {
-        return await bcrypt.compare(candidatePassowrd, this.password);
+    comparePassword: async function (candidatePassoword) {
+        return await bcrypt.compare(candidatePassoword, this.password);
     }
 }
 

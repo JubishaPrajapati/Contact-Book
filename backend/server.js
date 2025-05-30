@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 //use contact routes
-app.use('/api', contactRoutes);
+app.use('/api/contacts', contactRoutes);
 app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;

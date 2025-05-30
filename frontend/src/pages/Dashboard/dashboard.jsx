@@ -10,7 +10,6 @@ const Dashboard = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const userId = localStorage.getItem('userId');
 
-
     useEffect(() => {
         const getContacts = async () => {
             try {
@@ -18,12 +17,10 @@ const Dashboard = () => {
                 setContacts(data);
             } catch (error) {
                 console.error("Error fetching contacts:", error)
-
             } finally {
                 setLoading(false);
             }
         }
-
         getContacts();
 
     }, [userId]);

@@ -44,19 +44,25 @@
 
 .create-acc {
     display: flex;
-    font-size: 15px;
-    color: rgb(82, 82, 82);
-
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.creatacc-text {
-    margin-left: 138px;
-    color: rgb(41, 106, 246);
+.left-text {
+    margin: 0;
 }
 
-.creatacc-text:hover {
-    color: rgb(10, 10, 233);
+.right-link {
+    color: blue;
+    text-decoration: none;
 }
+
+.right-link:hover {
+    text-decoration: underline;
+}
+
 
 .error-msg {
     color: red;
